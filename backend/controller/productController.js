@@ -31,10 +31,16 @@ export const addProduct = async (req,res) => {
 
         return res.status(201).json(product)
 
-    } catch (error) {
-          console.log("AddProduct error")
-    return res.status(500).json({message:`AddProduct error ${error}`})
-    }
+    } 
+    catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+        success: false,
+        message: error.message,
+        stack: error.stack
+    });
+}
     
 }
 

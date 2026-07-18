@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import Title from './Title'
 import { shopDataContext } from '../context/ShopContext'
 import Card from './Card'
@@ -9,7 +9,6 @@ function BestSeller() {
 
     useEffect(()=>{
     let filterProduct = products.filter((item) => item.bestseller)
-
     setBestSeller(filterProduct.slice(0,4));
     },[products])
   return (

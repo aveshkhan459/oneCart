@@ -145,6 +145,6 @@ try {
     return res.status(201).json({message:'Status Updated'})
 } catch (error) {
      return res.status(500).json({message:error.message
-            })
+    })
 }
 }

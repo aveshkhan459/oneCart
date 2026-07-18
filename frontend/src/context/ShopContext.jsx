@@ -13,7 +13,7 @@ function ShopContext({children}) {
     let [showSearch,setShowSearch] = useState(false)
     let {serverUrl} = useContext(authDataContext)
     let [cartItem, setCartItem] = useState({});
-      let [loading,setLoading] = useState(false)
+    let [loading,setLoading] = useState(false)
     let currency = '₹';
     let delivery_fee = 40;
 
@@ -37,7 +37,7 @@ function ShopContext({children}) {
 
     let cartData = structuredClone(cartItem); // Clone the product
 
-    if (cartData[itemId]) {
+    if(cartData[itemId]) {
       if (cartData[itemId][size]) {
         cartData[itemId][size] += 1;
       } else {
@@ -94,7 +94,8 @@ function ShopContext({children}) {
     if (userData) {
       try {
         await axios.post(serverUrl + "/api/cart/update", { itemId, size, quantity }, { withCredentials: true })
-      } catch (error) {
+      }
+       catch (error) {
         console.log(error)
         
       }
@@ -110,7 +111,7 @@ function ShopContext({children}) {
             totalCount += cartItem[items][item]
           }
         } catch (error) {
-
+            console.log(error)
         }
       }
     }
@@ -126,8 +127,9 @@ function ShopContext({children}) {
           if (cartItem[items][item] > 0) {
             totalAmount += itemInfo.price * cartItem[items][item];
           }
-        } catch (error) {
-
+        } 
+        catch (error) {
+           console.log(error)
         }
       }
     }

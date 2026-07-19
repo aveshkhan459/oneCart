@@ -9,7 +9,7 @@ const razorpayInstance = new razorpay({
     key_secret: process.env.RAZORPAY_KEY_SECRET
 })
 
-// for User
+
 export const placeOrder = async (req,res) => {
 
      try {
@@ -118,8 +118,6 @@ export const userOrders = async (req,res) => {
 
 
 
-
-//for Admin
 
 
 
